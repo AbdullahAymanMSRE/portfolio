@@ -1,0 +1,107 @@
+@use "./variables/colors";
+@use "./variables/variables";
+@use "./mixins/mixins";
+
+.home-page {
+  background: colors.$background;
+  min-height: 100vh;
+  color: white;
+  @include mixins.flex($dir: column, $align: stretch);
+
+  .nav-component {
+    @include mixins.flex($just: space-between);
+    padding: 25px variables.$side-margin;
+    border-bottom: 1px solid #7a7a7a;
+    .logo {
+      @include mixins.flex();
+      gap: 16px;
+    }
+    .links-list {
+      @include mixins.flex($just: space-between);
+      list-style: none;
+      gap: 50px;
+      a {
+        color: colors.$secondary;
+        font-size: 18px;
+      }
+      li:last-child a {
+        @include mixins.flex();
+        height: 52px;
+        width: 132px;
+        border-radius: 24px;
+        border: 1px solid #fff;
+        color: white;
+      }
+    }
+    h1 {
+      text-transform: uppercase;
+      font: {
+        weight: 400;
+        size: 24px;
+      }
+    }
+  }
+  .container {
+    @include mixins.flex($just: space-between);
+    gap: 90px;
+    flex: 1;
+  }
+  .right {
+    @include mixins.flex();
+    img {
+      animation: banner-animation 3s ease-in-out infinite;
+    }
+  }
+  .left {
+    @include mixins.flex($just: space-evenly, $dir: column, $align: flex-start);
+    gap: 20px;
+    font-size: 64px;
+  }
+  .i-am-a {
+    text-transform: uppercase;
+  }
+  .title {
+    background: linear-gradient(90deg, #4ac7fa 0%, #e649f5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-right: 1px solid #7a7a7a;
+    min-height: 77px;
+  }
+  .description {
+    font-size: 24px;
+    max-width: 620px;
+  }
+  .social-list {
+    list-style: none;
+    @include mixins.flex();
+    gap: 50px;
+    li {
+      width: 35px;
+      height: 35px;
+      img,
+      a {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      &.stackoverflow {
+        margin-bottom: -15px;
+        min-width: 45px;
+        min-height: 45px;
+      }
+    }
+  }
+}
+
+@keyframes banner-animation {
+  0% {
+    transform: translate(-10px, -10px);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-10px, -10px);
+  }
+}
