@@ -77,23 +77,26 @@ export default function Home() {
           </p>
           <ul className="social-list">
             <li>
-              <Link to="">
+              <Link
+                to="https://www.linkedin.com/in/abdullah-
+ayman-2798a91ab/"
+              >
                 <img src={linkedinImg} alt="linkedin logo" />
               </Link>
             </li>
             <li>
-              <Link to="">
-                <img src={githubImg} alt="linkedin logo" />
+              <Link to="https://github.com/AbdullahAymanMSRE">
+                <img src={githubImg} alt="github logo" />
               </Link>
             </li>
             <li className="stackoverflow">
-              <Link to="">
-                <img src={stackoverflowImg} alt="linkedin logo" />
+              <Link to="https://stackoverflow.com/users/22522913/abdullah-ayman">
+                <img src={stackoverflowImg} alt="stackoverflow logo" />
               </Link>
             </li>
             <li>
-              <Link to="">
-                <img src={atImg} alt="linkedin logo" />
+              <Link to="mailto:abdullahaymanmsre@gmail.com">
+                <img src={atImg} alt="email logo" />
               </Link>
             </li>
           </ul>
