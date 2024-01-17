@@ -24,6 +24,7 @@
     @include mixins.flex();
     gap: 70px;
     position: relative;
+    flex-wrap: wrap;
   }
 
   .work {
@@ -32,6 +33,59 @@
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(50px);
+    padding: 20px;
+    @include mixins.flex(
+      $dir: column,
+      $just: space-between,
+      $align: flex-start
+    );
+    .img-background {
+      border-radius: 5px;
+      overflow: hidden;
+      width: 352px;
+      height: 246px;
+      background: linear-gradient(130deg, #1f2125 22.31%, #e649f5 130.86%);
+      backdrop-filter: blur(93.5px);
+      position: relative;
+      img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+    &:nth-child(even) {
+      .img-background {
+        background: linear-gradient(211deg, #1f2125 21.86%, #e649f5 126.65%);
+        img {
+          right: 0;
+          left: unset;
+        }
+      }
+    }
+    .job-title {
+      color: #d1d5db;
+      font: {
+        size: 20px;
+        weight: 700;
+      }
+    }
+    .work-name {
+      color: #fff;
+      font: {
+        weight: 700;
+        size: 32px;
+      }
+    }
+    .separator {
+      height: 1px;
+      background: #d1d5db;
+
+      width: 100%;
+    }
+    .frameworks {
+      @include mixins.flex($align: flex-start);
+      gap: 20px;
+    }
   }
   .front {
     position: relative;

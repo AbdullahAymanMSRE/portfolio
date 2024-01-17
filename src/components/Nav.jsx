@@ -11,12 +11,15 @@ export default function Nav({ portfolioScroll }) {
       </div>
       <ul className="links-list">
         <li>
-          <button onClick={portfolioScroll}>Portfolio</button>
+          <button onClick={portfolioScroll} data-text="Portfolio">
+            Portfolio
+          </button>
         </li>
         <li>
           <a
             href="https://drive.google.com/uc?export=download&id=1RKBQOHfsVkcZa_xt7rxH_OYOhPeE3Ni0"
             target="_blank"
+            data-text="Resume"
           >
             Resume
           </a>

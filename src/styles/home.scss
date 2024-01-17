@@ -33,6 +33,22 @@
         color: colors.$secondary;
         font-size: 18px;
         cursor: pointer;
+        transition: all 0.5s;
+        position: relative;
+        &:hover:not(.contact-btn) {
+          text-shadow: 0 0 20px colors.$secondary;
+          background-clip: text;
+          -webkit-background-clip: text;
+          &:after {
+            content: attr(data-text);
+            text-shadow: 0 0 20px colors.$secondary;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: blur(15px);
+          }
+        }
       }
       li:last-child a {
         @include mixins.flex();
@@ -63,14 +79,14 @@
           border-radius: 50%;
           background: conic-gradient(
             from 180deg at 50.17% 50.34%,
-            rgba(0, 0, 0, 0) 89.73139822483063deg,
-            #fc2da2 181.8234944343567deg,
-            #ffa647 201.4614486694336deg,
-            #ffe41a 226.5727186203003deg,
-            #69fc00 245.6411862373352deg,
-            #8800ff 268.50221157073975deg,
-            rgba(0, 0, 0, 0) 359.6771049499512deg
+            #8900ff 0.704859048128128deg,
+            #006eff 49.033634662628174deg,
+            #ff0090 93.1859815120697deg,
+            #ff8400 141.94159984588623deg,
+            #ffe000 217.34368801116943deg,
+            #e649f5 292.4467635154724deg
           );
+          backdrop-filter: blur(10px);
         }
         &::after {
           content: "Contact";
@@ -80,8 +96,6 @@
           width: 129px;
           position: absolute;
           border-radius: 24px;
-
-          // overflow: hidden;
         }
         &:hover::before {
           content: "";

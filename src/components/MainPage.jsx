@@ -10,7 +10,7 @@ export default function MainPage() {
   const words = [
     "Backend Developer",
     "Frontend Developer",
-    "Javascript Developer",
+    "Laravel Developer",
     "React Developer",
     "Fullstack Developer",
   ];
