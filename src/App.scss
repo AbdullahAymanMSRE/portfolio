@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
 a {
   text-decoration: none;
 }

@@ -1,0 +1,68 @@
+@use "../variables/colors";
+@use "../variables/variables";
+@use "../mixins/mixins";
+
+.portfolio {
+  .layout {
+    height: 100%;
+  }
+  .front {
+    @include mixins.flex($dir: column);
+    width: 100%;
+    height: 100%;
+    gap: 90px;
+  }
+  .heading {
+    background: linear-gradient(90deg, #4ac7fa 0%, #e649f5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 64px;
+  }
+
+  .works {
+    @include mixins.flex();
+    gap: 70px;
+    position: relative;
+  }
+
+  .work {
+    width: 402px;
+    height: 457px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(50px);
+  }
+  .front {
+    position: relative;
+    // width: 100vw;
+    // height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 100px;
+    // left: -(variables.$side-margin);
+    z-index: 0;
+    @include mixins.flex($align: flex-start);
+    // overflow: hidden;
+    div {
+      //   background: red;
+      width: 597px;
+      height: 763px;
+      border-radius: 210px;
+      background: linear-gradient(
+        120deg,
+        rgba(74, 199, 250, 0.8) -34.2%,
+        rgba(230, 73, 245, 0.8) 136.09%
+      );
+      filter: blur(50px);
+      opacity: 80%;
+    }
+  }
+}

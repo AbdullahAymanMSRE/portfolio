@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import logoImg from "../assets/logo.png";
+import { Link as ScrollLink } from "react-scroll";
 
-export default function Nav() {
+export default function Nav({ portfolioScroll }) {
   return (
     <nav className="nav-component">
       <div className="logo">
@@ -10,7 +11,7 @@ export default function Nav() {
       </div>
       <ul className="links-list">
         <li>
-          <Link to="">Portfolio</Link>
+          <button onClick={portfolioScroll}>Portfolio</button>
         </li>
         <li>
           <a
@@ -21,7 +22,9 @@ export default function Nav() {
           </a>
         </li>
         <li>
-          <Link to="">Contact</Link>
+          <Link className="contact-btn" to="">
+            Contact
+          </Link>
         </li>
       </ul>
     </nav>
