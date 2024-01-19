@@ -1,5 +1,6 @@
 @use "./variables/colors";
 @use "./variables/variables";
+@use "./variables/sizes";
 @use "./mixins/mixins";
 
 .home-page {
@@ -8,124 +9,25 @@
   color: white;
   // @include mixins.flex($dir: column, $align: stretch);
 
-  .nav-component {
-    @include mixins.flex($just: space-between);
-    padding: 25px variables.$side-margin;
-    border-bottom: 1px solid #7a7a7a;
-    max-height: 105px;
-    // position: fixed;
-    width: 100vw;
-    z-index: 100;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    .logo {
-      @include mixins.flex();
-      gap: 16px;
-    }
-    .links-list {
-      @include mixins.flex($just: space-between);
-      list-style: none;
-      gap: 50px;
-      a,
-      button {
-        border: none;
-        background: inherit;
-        color: colors.$secondary;
-        font-size: 18px;
-        cursor: pointer;
-        transition: all 0.5s;
-        position: relative;
-        &:hover:not(.contact-btn) {
-          text-shadow: 0 0 20px colors.$secondary;
-          background-clip: text;
-          -webkit-background-clip: text;
-          &:after {
-            content: attr(data-text);
-            text-shadow: 0 0 20px colors.$secondary;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            filter: blur(15px);
-          }
-        }
-      }
-      li:last-child a {
-        @include mixins.flex();
-        height: 52px;
-        width: 132px;
-        border-radius: 24px;
-        // border: 1px solid #fff;
-        color: white;
-        position: relative;
-        overflow: hidden;
-        background: white;
-        &::before {
-          // height: 52px;
-          // width: 132px;
-          // background: linear-gradient(
-          //   #ff75c3 14%,
-          //   #ffa647 32%,
-          //   #ffe83f 50%,
-          //   #9fff5b 69%,
-          //   #cd93ff 85%
-          // );
-          // width: 100%;
-          // height: 100%;
-          width: 200px;
-          height: 200px;
-          position: absolute;
-          animation: rotate-border 2s linear infinite;
-          border-radius: 50%;
-          background: conic-gradient(
-            from 180deg at 50.17% 50.34%,
-            #8900ff 0.704859048128128deg,
-            #006eff 49.033634662628174deg,
-            #ff0090 93.1859815120697deg,
-            #ff8400 141.94159984588623deg,
-            #ffe000 217.34368801116943deg,
-            #e649f5 292.4467635154724deg
-          );
-          backdrop-filter: blur(10px);
-        }
-        &::after {
-          content: "Contact";
-          @include mixins.flex();
-          background: black;
-          height: 49px;
-          width: 129px;
-          position: absolute;
-          border-radius: 24px;
-        }
-        &:hover::before {
-          content: "";
-        }
-      }
-      .contact-btn {
-      }
-    }
-    h1 {
-      text-transform: uppercase;
-      font: {
-        weight: 400;
-        size: 24px;
-      }
-    }
-  }
   .page {
-    height: 100vh;
+    min-height: 100vh;
     // padding-top: 105px;
+    overflow: hidden;
   }
   .main {
     @include mixins.flex($dir: row-reverse, $just: space-between);
-    gap: 90px;
+    gap: 10%;
     flex: 1;
+    > section {
+      max-width: 45%;
+    }
   }
   .right {
     @include mixins.flex();
     flex: 1;
     svg {
-      min-width: 100%;
+      min-width: 540px;
+      width: 100%;
       // width: 612px;
       // height: 490px;
       animation: banner-animation 4s ease-in-out infinite;
@@ -137,8 +39,12 @@
     gap: 20px;
     font-size: 64px;
   }
+  .i {
+    @include mixins.flex($dir: column);
+  }
   .i-am-a {
     text-transform: uppercase;
+    width: 100%;
   }
   .title {
     background: linear-gradient(90deg, #4ac7fa 0%, #e649f5 100%);
@@ -165,7 +71,9 @@
       a {
         max-width: 100%;
         max-height: 100%;
+        display: flex;
       }
+
       &.stackoverflow {
         margin-bottom: -15px;
         min-width: 45px;
@@ -177,14 +85,14 @@
 
 @keyframes banner-animation {
   0% {
-    transform: translate(-5px, -5px);
+    transform: translate(-10px, -10px);
   }
   50% {
     transform: translate(0, 0);
   }
 
   100% {
-    transform: translate(-5px, -5px);
+    transform: translate(-10px, -10px);
   }
 }
 
@@ -194,5 +102,71 @@
   }
   100% {
     transform: rotate(-360deg);
+  }
+}
+
+@media screen and (max-width: sizes.$breakpoint-xl) {
+  .container {
+    padding: 0 variables.$side-margin-sm;
+  }
+  .home-page {
+    .main {
+      // flex-direction: column;
+      // align-items: flex-start;
+      padding-top: 115px;
+      align-items: stretch;
+      justify-content: center;
+      .right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: unset;
+        height: 100vh;
+        width: 100vw;
+        &::before {
+          height: 100vh;
+          width: 100vw;
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.75);
+          backdrop-filter: blur(3px);
+          z-index: 1;
+        }
+        svg {
+          position: relative;
+          width: 80%;
+          z-index: 0;
+        }
+      }
+      .left {
+        background: rgba(0, 0, 0, 0);
+        position: relative;
+        z-index: 2;
+        min-height: 100%;
+        // padding: 50px 0;
+        max-width: 90%;
+        justify-content: center;
+        .description {
+          max-width: 100%;
+        }
+        .title {
+          max-width: 100%;
+          white-space: pre-wrap;
+          border: none;
+          word-spacing: 100%;
+          min-height: 160px;
+          // max-width: 300px;
+          width: min-intrinsic;
+          width: -webkit-min-content;
+          width: -moz-min-content;
+          width: min-content;
+          display: table-caption;
+          display: -ms-grid;
+          -ms-grid-columns: min-content;
+        }
+      }
+    }
   }
 }

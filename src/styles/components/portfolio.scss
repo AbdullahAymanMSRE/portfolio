@@ -3,14 +3,15 @@
 @use "../mixins/mixins";
 
 .portfolio {
-  .layout {
-    height: 100%;
-  }
+  @include mixins.flex();
   .front {
     @include mixins.flex($dir: column);
     width: 100%;
     height: 100%;
     gap: 90px;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
   }
   .heading {
     background: linear-gradient(90deg, #4ac7fa 0%, #e649f5 100%);
@@ -88,11 +89,6 @@
     }
   }
   .front {
-    position: relative;
-    // width: 100vw;
-    // height: 100vh;
-    z-index: 1;
-    overflow: hidden;
   }
   .back {
     position: absolute;
@@ -104,11 +100,11 @@
     // left: -(variables.$side-margin);
     z-index: 0;
     @include mixins.flex($align: flex-start);
-    // overflow: hidden;
+    overflow: visible;
     div {
       //   background: red;
-      width: 597px;
-      height: 763px;
+      width: 80%;
+      height: 200%;
       border-radius: 210px;
       background: linear-gradient(
         120deg,

@@ -1,0 +1,188 @@
+@use "../variables/colors";
+@use "../variables/variables";
+@use "../variables/sizes";
+@use "../mixins/mixins";
+
+.nav-component {
+  @include mixins.flex($just: space-between);
+  padding: 25px variables.$side-margin;
+  border-bottom: 1px solid #7a7a7a;
+  max-height: 105px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  // position: fixed;
+  width: 100vw;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  .logo {
+    @include mixins.flex();
+    gap: 16px;
+  }
+  .links-list {
+    @include mixins.flex($just: space-between);
+    list-style: none;
+    gap: 50px;
+    a,
+    button {
+      border: none;
+      background: inherit;
+      color: colors.$secondary;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.5s;
+      position: relative;
+      &:hover:not(.contact-btn) {
+        text-shadow: 0 0 20px colors.$secondary;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: white;
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: #4fafd7;
+        &:after {
+          content: attr(data-text);
+          text-shadow: 0 0 20px colors.$secondary;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          filter: blur(15px);
+        }
+      }
+    }
+    li:last-child a {
+      @include mixins.flex();
+      height: 52px;
+      width: 132px;
+      border-radius: 24px;
+      // border: 1px solid #fff;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      background: white;
+      &::before {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        animation: rotate-border 2s linear infinite;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 180deg at 50.17% 50.34%,
+          #8900ff 0.704859048128128deg,
+          #006eff 49.033634662628174deg,
+          #ff0090 93.1859815120697deg,
+          #ff8400 141.94159984588623deg,
+          #ffe000 217.34368801116943deg,
+          #e649f5 292.4467635154724deg
+        );
+        backdrop-filter: blur(10px);
+      }
+      &::after {
+        content: "Contact";
+        @include mixins.flex();
+        background: black;
+        height: 49px;
+        width: 129px;
+        position: absolute;
+        border-radius: 24px;
+      }
+      &:hover::before {
+        content: "";
+      }
+    }
+  }
+  h1 {
+    text-transform: uppercase;
+    font: {
+      weight: 400;
+      size: 24px;
+    }
+  }
+  .burger {
+    @include mixins.flex($dir: column);
+    gap: 4px;
+    min-height: 40px;
+    display: none;
+    div {
+      width: 40px;
+      height: 3px;
+      background: white;
+      border-radius: 5px;
+      transition: 0.5s;
+    }
+    div:nth-child(2) {
+      transition: none;
+    }
+    &.open {
+      div:first-child {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      div:last-child {
+        transform: rotate(-45deg);
+      }
+      div:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: sizes.$breakpoint-xl) {
+  .nav-component {
+    padding: {
+      left: variables.$side-margin-sm;
+      right: variables.$side-margin-sm;
+    }
+  }
+}
+@media screen and (max-width: sizes.$breakpoint-md) {
+  .nav-component {
+    .links-list {
+      gap: 20px;
+      li:last-child a {
+        height: 40px;
+        width: 85px;
+        &::after {
+          content: "Contact";
+          background: black;
+          height: 38px;
+          width: 83px;
+          position: absolute;
+          border-radius: 24px;
+        }
+      }
+    }
+    .logo {
+      h1 {
+        // font-size: 16px;
+      }
+      img {
+        width: 26px;
+        height: 26px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: sizes.$breakpoint-sm) {
+  .nav-component {
+    .links-list {
+      display: none;
+    }
+    .burger {
+      display: flex;
+      &.open + .links-list {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        right: 20px;
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        gap: 30px;
+      }
+    }
+  }
+}
