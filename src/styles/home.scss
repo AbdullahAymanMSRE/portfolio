@@ -75,7 +75,6 @@
       }
 
       &.stackoverflow {
-        margin-bottom: -15px;
         min-width: 45px;
         min-height: 45px;
       }
@@ -167,6 +166,16 @@
           -ms-grid-columns: min-content;
         }
       }
+    }
+  }
+}
+@media screen and (max-width: sizes.$breakpoint-sm) {
+  .home-page {
+    .left {
+      font-size: 55px;
+    }
+    .description {
+      font-size: 20px;
     }
   }
 }
