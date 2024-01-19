@@ -36,7 +36,7 @@ export default function Portfolio({ ref }) {
               <img src={garbageImage} alt="work" />
             </div>
             <span className="job-title">Fullstack Developer</span>
-            <span className="work-name">Garbage Collection</span>
+            <span className="work-name">Waste Collection</span>
             <div className="separator"></div>
             <div className="frameworks">
               <JavascriptIcon />

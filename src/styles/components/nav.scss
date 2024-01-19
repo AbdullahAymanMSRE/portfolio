@@ -153,6 +153,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: sizes.$breakpoint-sm) {
+  .nav-component {
     .logo {
       h1 {
         font-size: 20px;
@@ -163,11 +168,6 @@
         height: 26px;
       }
     }
-  }
-}
-
-@media screen and (max-width: sizes.$breakpoint-sm) {
-  .nav-component {
     .links-list {
       display: none;
     }

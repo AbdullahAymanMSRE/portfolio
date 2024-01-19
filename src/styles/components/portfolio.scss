@@ -1,5 +1,6 @@
 @use "../variables/colors";
 @use "../variables/variables";
+@use "../variables/sizes";
 @use "../mixins/mixins";
 
 .portfolio {
@@ -43,32 +44,32 @@
     .img-background {
       border-radius: 5px;
       overflow: hidden;
-      width: 352px;
+      width: 100%;
       height: 246px;
       background: linear-gradient(130deg, #1f2125 22.31%, #e649f5 130.86%);
       backdrop-filter: blur(93.5px);
       position: relative;
       img {
         position: absolute;
-        bottom: 0;
-        left: 0;
+        top: 30px;
+        right: 20px;
+        // width: 100%;
+        height: calc(100% - 20px);
+        border-radius: 10px;
       }
     }
     &:nth-child(even) {
       .img-background {
         background: linear-gradient(211deg, #1f2125 21.86%, #e649f5 126.65%);
         img {
-          right: 0;
-          left: unset;
+          left: 20px;
+          right: unset;
         }
       }
     }
     .job-title {
       color: #d1d5db;
-      font: {
-        size: 20px;
-        weight: 700;
-      }
+      font-size: 20px;
     }
     .work-name {
       color: #fff;
@@ -113,6 +114,17 @@
       );
       filter: blur(50px);
       opacity: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: sizes.$breakpoint-sm) {
+  .portfolio {
+    .heading {
+      font-size: 50px;
+    }
+    .work {
+      width: 330px;
     }
   }
 }
