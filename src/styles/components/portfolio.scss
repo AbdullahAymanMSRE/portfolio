@@ -36,6 +36,7 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(50px);
     padding: 20px;
+    transition: 0.5s;
     @include mixins.flex(
       $dir: column,
       $just: space-between,
@@ -88,8 +89,10 @@
       @include mixins.flex($align: flex-start);
       gap: 20px;
     }
-  }
-  .front {
+    &:hover{
+      transform: translate(-2px, -2px);
+      box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+    }
   }
   .back {
     position: absolute;
