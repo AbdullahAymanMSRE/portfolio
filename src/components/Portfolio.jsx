@@ -8,6 +8,7 @@ import { ReactComponent as ReactIcon } from "../assets/svg/react.svg";
 import { ReactComponent as MysqlIcon } from "../assets/svg/mysql.svg";
 import { ReactComponent as PhpIcon } from "../assets/svg/php.svg";
 import { ReactComponent as GitIcon } from "../assets/svg/git.svg";
+import { Link } from "react-router-dom";
 
 export default function Portfolio({ ref }) {
   return (
@@ -18,7 +19,7 @@ export default function Portfolio({ ref }) {
           <div className="back">
             <div></div>
           </div>
-          <div className="work">
+          <Link className="work" to="algov-visualizer.vercel.app">
             <div className="img-background">
               <img src={algovImage} alt="work" />
             </div>
@@ -30,8 +31,11 @@ export default function Portfolio({ ref }) {
               <ReactIcon />
               <GitIcon />
             </div>
-          </div>
-          <div className="work">
+          </Link>
+          <Link
+            className="work"
+            to="https://www.upwork.com/freelancers/~016104954171b1b55c?p=1748239965108281344"
+          >
             <div className="img-background">
               <img src={garbageImage} alt="work" />
             </div>
@@ -45,7 +49,7 @@ export default function Portfolio({ ref }) {
               <PhpIcon />
               <MysqlIcon />
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -37,7 +37,7 @@ export default function Nav({ portfolioScroll }) {
           </a>
         </li>
         <li>
-          <Link className="contact-btn" to="">
+          <Link className="contact-btn" to="mailto:abdullahaymanmsre@gmail.com">
             Contact
           </Link>
         </li>

@@ -21,13 +21,15 @@
     > section {
       max-width: 45%;
     }
+    padding-top: 100px;
   }
   .right {
     @include mixins.flex();
     flex: 1;
     svg {
-      min-width: 540px;
+      // min-width: 540px;
       width: 100%;
+      max-width: 100%;
       // width: 612px;
       // height: 490px;
       animation: banner-animation 4s ease-in-out infinite;
