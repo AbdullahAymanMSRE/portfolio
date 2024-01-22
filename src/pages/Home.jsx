@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Element, Events, scrollSpy } from "react-scroll";
 import MainPage from "../components/MainPage";
 import Portfolio from "../components/Portfolio";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 export default function Home() {
   const portfolioPage = useRef(null);
@@ -14,6 +15,9 @@ export default function Home() {
 
   return (
     <div className="home-page">
+      <ParticlesBackground />
+      <div className="contents">
+
       <Nav portfolioScroll={scrollToPortfolio} />
       <main className="container">
         <MainPage />
@@ -22,6 +26,7 @@ export default function Home() {
           <Portfolio />
         </div>
       </main>
+      </div>
     </div>
   );
 }

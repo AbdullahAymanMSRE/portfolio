@@ -15,7 +15,7 @@
   width: 100vw;
   z-index: 100;
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
   .logo {
     @include mixins.flex($just: flex-start);
     gap: 16px;
@@ -135,15 +135,13 @@
   }
 }
 
-@media screen and (max-width: sizes.$breakpoint-xl) {
+@media screen and (max-width: sizes.$breakpoint-md) {
   .nav-component {
     padding: {
       left: variables.$side-margin-sm;
       right: variables.$side-margin-sm;
     }
   }
-}
-@media screen and (max-width: sizes.$breakpoint-md) {
   .nav-component {
     .links-list {
       gap: 20px;
@@ -177,6 +175,11 @@
     }
     .links-list {
       display: none;
+      li:last-child a{
+        &::after{
+          outline: none;
+        }
+      }
     }
     .burger {
       display: flex;

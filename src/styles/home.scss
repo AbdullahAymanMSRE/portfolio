@@ -4,10 +4,16 @@
 @use "./mixins/mixins";
 
 .home-page {
-  background: colors.$background;
+  // background: colors.$background;
   min-height: 100vh;
   color: white;
   // @include mixins.flex($dir: column, $align: stretch);
+  .contents{
+  background: rgba(0,0,0,0);
+  position: relative;
+  z-index: 2;
+
+  }
 
   .page {
     min-height: 100vh;
@@ -26,6 +32,7 @@
   .right {
     @include mixins.flex();
     flex: 1;
+    min-width: 40%;
     svg {
       // min-width: 540px;
       width: 100%;
@@ -40,6 +47,7 @@
     @include mixins.flex($just: space-evenly, $dir: column, $align: flex-start);
     gap: 20px;
     font-size: 64px;
+    min-width: 40%;
   }
   .i {
     @include mixins.flex($dir: column);
@@ -99,9 +107,6 @@
 
 
 @media screen and (max-width: sizes.$breakpoint-xl) {
-  .container {
-    padding: 0 variables.$side-margin-sm;
-  }
   .home-page {
     .main {
       // flex-direction: column;
@@ -162,6 +167,12 @@
       }
     }
   }
+}
+@media screen and (max-width: sizes.$breakpoint-md){
+  .container {
+    padding: 0 variables.$side-margin-sm;
+  }
+
 }
 @media screen and (max-width: sizes.$breakpoint-sm) {
   .home-page {

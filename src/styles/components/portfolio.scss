@@ -34,7 +34,7 @@
     height: 457px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(5px);
     padding: 20px;
     transition: 0.5s;
     @include mixins.flex(
