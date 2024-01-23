@@ -40,32 +40,7 @@ export default function Portfolio({ ref }) {
               <MysqlIcon />,
             ]}
           />
-          <Work
-            title="Fullstack Developer"
-            link="https://www.upwork.com/freelancers/~016104954171b1b55c?p=1748239965108281344"
-            image={garbageImage}
-            name="Waste Collection"
-            icons={[
-              <JavascriptIcon />,
-              <ReactIcon />,
-              <GitIcon />,
-              <PhpIcon />,
-              <MysqlIcon />,
-            ]}
-          />
-          <Work
-            title="Fullstack Developer"
-            link="http://mamsre-001-site2.dtempurl.com/en/#/home"
-            image={garbageImage}
-            name="Waste Collection"
-            icons={[
-              <JavascriptIcon />,
-              <ReactIcon />,
-              <GitIcon />,
-              <PhpIcon />,
-              <MysqlIcon />,
-            ]}
-          />
+          
         </div>
       </div>
     </div>
