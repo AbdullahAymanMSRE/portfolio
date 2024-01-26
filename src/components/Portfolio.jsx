@@ -22,7 +22,7 @@ export default function Portfolio({ ref }) {
           </div>
           <Work
             title="Frontend Developer"
-            link="algov-visualizer.vercel.app"
+            link="https://algov-visualizer.vercel.app"
             image={algovImage}
             name="AlgoV"
             icons={[<JavascriptIcon />, <ReactIcon />, <GitIcon />]}
