@@ -4,7 +4,7 @@ import logoImg from "../assets/logo.png";
 import { Link as ScrollLink } from "react-scroll";
 import { useState } from "react";
 
-export default function Nav({ portfolioScroll }) {
+export default function Nav({ portfolioScroll, contactScroll }) {
   const [navOpen, setNavOpen] = useState(false);
 
   return (
@@ -37,9 +37,13 @@ export default function Nav({ portfolioScroll }) {
           </a>
         </li>
         <li>
-          <Link className="contact-btn" to="mailto:abdullahaymanmsre@gmail.com">
+          <button
+            className="contact-btn"
+            onClick={contactScroll}
+            data-text="Contact"
+          >
             Contact
-          </Link>
+          </button>
         </li>
       </ul>
     </nav>

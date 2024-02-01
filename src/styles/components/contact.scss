@@ -1,0 +1,55 @@
+@use "../helper/mixins";
+@use "../helper/colors";
+
+.contact-component {
+  .layout {
+    @include mixins.flex($dir: column);
+  }
+  .heading {
+    @include mixins.heading-text;
+    margin: 30px 0;
+  }
+  .contact-form {
+    flex: 1;
+    border: 2px solid colors.$primary;
+    border-radius: 15px;
+    box-shadow: 0 0 15px colors.$primary;
+    padding: 50px;
+    backdrop-filter: blur(8px);
+  }
+  .form-group {
+    @include mixins.flex($dir: column, $align: flex-start);
+    gap: 18px;
+    margin-bottom: 25px;
+    label {
+      font-size: 20px;
+      span {
+        color: red;
+      }
+    }
+    input,
+    textarea {
+      font-size: 16px;
+      min-width: 600px;
+      max-width: 600px;
+      background: rgba(#000, 0);
+      border: 1px solid colors.$primary;
+      border-radius: 10px;
+      color: white;
+      padding: 10px;
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+  .submit-btn {
+    width: 100%;
+    background: colors.$primary;
+    color: white;
+    border: 0;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}

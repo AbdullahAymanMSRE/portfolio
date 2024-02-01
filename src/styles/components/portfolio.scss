@@ -1,7 +1,7 @@
-@use "../variables/colors";
-@use "../variables/variables";
-@use "../variables/sizes";
-@use "../mixins/mixins";
+@use "../helper/colors";
+@use "../helper/variables";
+@use "../helper/sizes";
+@use "../helper/mixins";
 
 .portfolio {
   @include mixins.flex();
@@ -15,11 +15,7 @@
     overflow: visible;
   }
   .heading {
-    background: linear-gradient(90deg, #4ac7fa 0%, #e649f5 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 64px;
+    @include mixins.heading-text;
   }
 
   .works {
@@ -89,9 +85,9 @@
       @include mixins.flex($align: flex-start);
       gap: 20px;
     }
-    &:hover{
+    &:hover {
       transform: translate(-2px, -2px);
-      box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
     }
   }
   .back {
@@ -121,7 +117,7 @@
   }
 }
 
-@media screen and (max-width: sizes.$breakpoint-sm) {
+@include mixins.mediaQuery(sm) {
   .portfolio {
     .heading {
       font-size: 50px;

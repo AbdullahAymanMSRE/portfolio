@@ -1,7 +1,7 @@
-@use "../variables/colors";
-@use "../variables/variables";
-@use "../variables/sizes";
-@use "../mixins/mixins";
+@use "../helper/colors";
+@use "../helper/variables";
+@use "../helper/sizes";
+@use "../helper/mixins";
 
 .nav-component {
   @include mixins.flex($just: space-between);
@@ -51,7 +51,7 @@
         }
       }
     }
-    li:last-child a {
+    li:last-child button {
       @include mixins.flex();
       height: 52px;
       width: 132px;
@@ -85,14 +85,13 @@
         width: calc(100% - 4px);
         position: absolute;
         border-radius: 24px;
-        
+
         outline: {
           width: 12px;
           color: black;
           offset: 2px;
           style: solid;
         }
-        
       }
       &:hover::before {
         content: "";
@@ -135,7 +134,7 @@
   }
 }
 
-@media screen and (max-width: sizes.$breakpoint-md) {
+@include mixins.mediaQuery(md) {
   .nav-component {
     padding: {
       left: variables.$side-margin-sm;
@@ -161,7 +160,7 @@
   }
 }
 
-@media screen and (max-width: sizes.$breakpoint-sm) {
+@include mixins.mediaQuery(sm) {
   .nav-component {
     .logo {
       h1 {
@@ -175,8 +174,8 @@
     }
     .links-list {
       display: none;
-      li:last-child a{
-        &::after{
+      li:last-child a {
+        &::after {
           outline: none;
         }
       }

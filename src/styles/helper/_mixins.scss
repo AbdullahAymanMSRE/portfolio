@@ -1,0 +1,27 @@
+@use "./sizes";
+
+@mixin flex($dir: row, $just: center, $align: center) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: $align;
+  justify-content: $just;
+}
+
+$sizes: xs 480, sm 576, md 768, lg 992, xl 1200;
+@mixin mediaQuery($size) {
+  @each $name, $width in $sizes {
+    @if $size == $name {
+      @media screen and (max-width: $width) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin heading-text() {
+  background: linear-gradient(90deg, #4ac7fa 0%, #e649f5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 64px;
+}

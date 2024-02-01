@@ -1,23 +1,20 @@
-@use "./variables/colors";
-@use "./variables/variables";
-@use "./variables/sizes";
-@use "./mixins/mixins";
+@use "./helper/colors";
+@use "./helper/variables";
+@use "./helper/sizes";
+@use "./helper/mixins";
 
 .home-page {
-  // background: colors.$background;
   min-height: 100vh;
   color: white;
-  // @include mixins.flex($dir: column, $align: stretch);
-  .contents{
-  background: rgba(0,0,0,0);
-  position: relative;
-  z-index: 2;
-
+  padding-bottom: 100px;
+  .contents {
+    background: rgba(0, 0, 0, 0);
+    position: relative;
+    z-index: 2;
   }
 
   .page {
     min-height: 100vh;
-    // padding-top: 105px;
     overflow: hidden;
   }
   .main {
@@ -34,11 +31,8 @@
     flex: 1;
     min-width: 40%;
     svg {
-      // min-width: 540px;
       width: 100%;
       max-width: 100%;
-      // width: 612px;
-      // height: 490px;
       animation: banner-animation 4s ease-in-out infinite;
     }
   }
@@ -105,8 +99,9 @@
   }
 }
 
-
-@media screen and (max-width: sizes.$breakpoint-xl) {
+@include mixins.mediaQuery(sm) {
+  .home-page {
+  }
   .home-page {
     .main {
       // flex-direction: column;
@@ -146,8 +141,10 @@
         // padding: 50px 0;
         max-width: 90%;
         justify-content: center;
+        font-size: 55px;
         .description {
           max-width: 100%;
+          font-size: 20px;
         }
         .title {
           max-width: 100%;
@@ -168,19 +165,8 @@
     }
   }
 }
-@media screen and (max-width: sizes.$breakpoint-md){
+@include mixins.mediaQuery(md) {
   .container {
     padding: 0 variables.$side-margin-sm;
-  }
-
-}
-@media screen and (max-width: sizes.$breakpoint-sm) {
-  .home-page {
-    .left {
-      font-size: 55px;
-    }
-    .description {
-      font-size: 20px;
-    }
   }
 }
