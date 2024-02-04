@@ -1,4 +1,4 @@
-@use "./sizes";
+// @use "./sizes";
 
 @mixin flex($dir: row, $just: center, $align: center) {
   display: flex;
@@ -11,7 +11,7 @@ $sizes: xs 480, sm 576, md 768, lg 992, xl 1200;
 @mixin mediaQuery($size) {
   @each $name, $width in $sizes {
     @if $size == $name {
-      @media screen and (max-width: $width) {
+      @media screen and (max-width: #{$width}px) {
         @content;
       }
     }

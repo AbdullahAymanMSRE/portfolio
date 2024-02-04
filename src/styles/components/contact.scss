@@ -2,8 +2,14 @@
 @use "../helper/colors";
 
 .contact-component {
+  padding-bottom: 50px;
+  flex: 1;
+  width: 100%;
+  @include mixins.flex($dir: column);
   .layout {
     @include mixins.flex($dir: column);
+    width: 100%;
+    flex: 1;
   }
   .heading {
     @include mixins.heading-text;
@@ -11,16 +17,20 @@
   }
   .contact-form {
     flex: 1;
+    width: 100%;
     border: 2px solid colors.$primary;
     border-radius: 15px;
     box-shadow: 0 0 15px colors.$primary;
     padding: 50px;
     backdrop-filter: blur(8px);
+    @include mixins.flex($dir: column);
+    max-width: 700px;
   }
   .form-group {
     @include mixins.flex($dir: column, $align: flex-start);
     gap: 18px;
     margin-bottom: 25px;
+    width: 100%;
     label {
       font-size: 20px;
       span {
@@ -30,8 +40,7 @@
     input,
     textarea {
       font-size: 16px;
-      min-width: 600px;
-      max-width: 600px;
+      width: 100%;
       background: rgba(#000, 0);
       border: 1px solid colors.$primary;
       border-radius: 10px;
@@ -40,6 +49,12 @@
       &:focus {
         outline: 0;
       }
+    }
+    textarea {
+      flex: 1;
+    }
+    &:last-of-type {
+      flex: 1;
     }
   }
   .submit-btn {
@@ -51,5 +66,18 @@
     padding: 10px;
     font-size: 20px;
     cursor: pointer;
+  }
+}
+
+@include mixins.mediaQuery(sm) {
+  .contact-component {
+    .heading {
+      font-size: 50px;
+    }
+    .contact-form {
+      border: none;
+      box-shadow: none;
+      padding: 50px 15px;
+    }
   }
 }

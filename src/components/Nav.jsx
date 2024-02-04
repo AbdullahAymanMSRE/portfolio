@@ -29,6 +29,7 @@ export default function Nav({ portfolioScroll, contactScroll }) {
         </li>
         <li>
           <a
+            onClick={(e) => window.open(e.target.href, "_blank")}
             href="https://drive.google.com/uc?export=download&id=1RKBQOHfsVkcZa_xt7rxH_OYOhPeE3Ni0"
             target="_blank"
             data-text="Resume"

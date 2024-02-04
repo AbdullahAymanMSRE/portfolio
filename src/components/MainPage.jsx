@@ -4,11 +4,10 @@ import linkedinImg from "../assets/linkedin.png";
 import githubImg from "../assets/github.png";
 import stackoverflowImg from "../assets/stackoverflow.png";
 import atImg from "../assets/at.png";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import ParticlesBackground from "./ParticlesBackground";
 
 export default function MainPage() {
-
   const words = [
     "Backend Developer",
     "Frontend Developer",
@@ -64,7 +63,6 @@ export default function MainPage() {
   };
   return (
     <div className="main page">
-      <div id="particles-js"></div>
       <section className="right">
         <BannerSvg />
       </section>

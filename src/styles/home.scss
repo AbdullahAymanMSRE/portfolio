@@ -1,12 +1,12 @@
 @use "./helper/colors";
 @use "./helper/variables";
-@use "./helper/sizes";
+// @use "./helper/sizes";
 @use "./helper/mixins";
 
 .home-page {
   min-height: 100vh;
   color: white;
-  padding-bottom: 100px;
+  // padding-bottom: 80px;
   .contents {
     background: rgba(0, 0, 0, 0);
     position: relative;
@@ -15,11 +15,11 @@
 
   .page {
     min-height: 100vh;
-    overflow: hidden;
+    // overflow: hidden;
   }
   .main {
     @include mixins.flex($dir: row-reverse, $just: space-between);
-    gap: 10%;
+    // gap: 10%;
     flex: 1;
     > section {
       max-width: 45%;
@@ -42,6 +42,7 @@
     gap: 20px;
     font-size: 64px;
     min-width: 40%;
+    flex: 1;
   }
   .i {
     @include mixins.flex($dir: column);
@@ -84,6 +85,9 @@
       }
     }
   }
+  .contact.page {
+    @include mixins.flex($dir: column);
+  }
 }
 
 @keyframes banner-animation {
@@ -99,26 +103,36 @@
   }
 }
 
-@include mixins.mediaQuery(sm) {
+@include mixins.mediaQuery(xl) {
   .home-page {
+    .container {
+      padding: 0 variables.$side-margin-sm;
+    }
   }
+}
+
+@include mixins.mediaQuery(lg) {
   .home-page {
+    %height {
+      height: 100vh;
+      min-height: 600px;
+    }
     .main {
       // flex-direction: column;
       // align-items: flex-start;
       padding-top: 115px;
       align-items: stretch;
-      justify-content: center;
+      justify-content: flex-end;
       .right {
         position: absolute;
         top: 0;
         left: 0;
         max-width: unset;
-        height: 100vh;
         width: 100vw;
+        @extend %height;
         &::before {
-          height: 100vh;
           width: 100vw;
+          @extend %height;
           content: "";
           position: absolute;
           top: 0;
@@ -137,7 +151,7 @@
         background: rgba(0, 0, 0, 0);
         position: relative;
         z-index: 2;
-        min-height: 100%;
+        @extend %height;
         // padding: 50px 0;
         max-width: 90%;
         justify-content: center;
@@ -165,6 +179,7 @@
     }
   }
 }
+
 @include mixins.mediaQuery(md) {
   .container {
     padding: 0 variables.$side-margin-sm;
