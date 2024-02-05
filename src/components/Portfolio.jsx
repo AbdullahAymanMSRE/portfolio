@@ -9,14 +9,17 @@ import { ReactComponent as MysqlIcon } from "../assets/svg/mysql.svg";
 import { ReactComponent as PhpIcon } from "../assets/svg/php.svg";
 import { ReactComponent as GitIcon } from "../assets/svg/git.svg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import Work from "./Work";
 
 export default function Portfolio({ ref }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="layout">
       <div className="front">
         <h2 className="heading">Portfolio</h2>
-        <div className="works">
+        <div className={"works " + (open ? "open " : "")}>
           <div className="back">
             <div></div>
           </div>
@@ -26,6 +29,8 @@ export default function Portfolio({ ref }) {
             image={algovImage}
             name="AlgoV"
             icons={[<JavascriptIcon />, <ReactIcon />, <GitIcon />]}
+            open={open}
+            setOpen={setOpen}
           />
           <Work
             title="Fullstack Developer"
@@ -39,8 +44,9 @@ export default function Portfolio({ ref }) {
               <PhpIcon />,
               <MysqlIcon />,
             ]}
+            open={open}
+            setOpen={setOpen}
           />
-          
         </div>
       </div>
     </div>

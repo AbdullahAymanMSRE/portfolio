@@ -2,6 +2,29 @@
 @use "../helper/variables";
 @use "../helper/sizes";
 @use "../helper/mixins";
+@use "../helper/functions";
+
+$top: 50px;
+$left: 50%;
+$old-height: 457px;
+$old-width: 402px;
+
+@mixin imagePos($selector, $map) {
+  @each $order, $pos in $map {
+    #{$selector}:nth-of-type(#{$order}) {
+      .img-background {
+        background: if(
+          #{$pos} == right,
+          linear-gradient(211deg, #1f2125 21.86%, #e649f5 126.65%),
+          linear-gradient(130deg, #1f2125 22.31%, #e649f5 130.86%)
+        );
+        img {
+          #{functions.reverseDir($pos)}: 20px;
+        }
+      }
+    }
+  }
+}
 
 .portfolio {
   @include mixins.flex();
@@ -23,46 +46,66 @@
     gap: 70px;
     position: relative;
     flex-wrap: wrap;
+    @include imagePos("&:not(.open) .work", (even right, odd left));
+    @include imagePos("&.open .work", (even left, odd right));
   }
-
-  .work {
-    width: 402px;
-    height: 457px;
+  %work-props {
+    width: $old-width;
+    height: $old-height;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     padding: 20px;
-    transition: 0.5s;
     @include mixins.flex(
       $dir: column,
       $just: space-between,
       $align: flex-start
     );
+  }
+  .work {
+    @extend %work-props;
+    transition: background 2s;
+    &.open {
+      position: fixed;
+      animation: open-work 1s ease-in-out forwards;
+      z-index: 10;
+      max-width: min(90vw, 700px);
+      background: rgba(black, 0.9);
+      border: 2px solid colors.$primary;
+      box-shadow: 0 0 15px colors.$primary;
+      .close {
+        display: inline-block;
+      }
+      & + .after-work {
+        @extend %work-props;
+        background: transparent;
+        backdrop-filter: none;
+      }
+    }
+    .close {
+      @include mixins.square(20px);
+      display: none;
+    }
     .img-background {
       border-radius: 5px;
       overflow: hidden;
       width: 100%;
       height: 246px;
-      background: linear-gradient(130deg, #1f2125 22.31%, #e649f5 130.86%);
       backdrop-filter: blur(93.5px);
       position: relative;
       img {
         position: absolute;
         top: 30px;
-        right: 20px;
         // width: 100%;
         height: calc(100% - 20px);
         border-radius: 10px;
       }
     }
-    &:nth-child(even) {
-      .img-background {
-        background: linear-gradient(211deg, #1f2125 21.86%, #e649f5 126.65%);
-        img {
-          left: 20px;
-          right: unset;
-        }
-      }
+    .details-btn {
+      background: transparent;
+      border: none;
+      color: colors.$secondary;
+      font-size: 16px;
     }
     .job-title {
       color: #d1d5db;
@@ -84,10 +127,6 @@
     .frameworks {
       @include mixins.flex($align: flex-start);
       gap: 20px;
-    }
-    &:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
     }
   }
   .back {
@@ -125,5 +164,26 @@
     .work {
       width: 330px;
     }
+  }
+}
+
+@keyframes open-work {
+  0% {
+    transform: translateX(0);
+  }
+  35% {
+    left: $left;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    height: $old-height;
+    width: $old-width;
+  }
+  100% {
+    left: $left;
+    top: 50vh;
+    width: 90vw;
+    height: 90vh;
+    transform: translate(-50%, -50%);
+    // position: sticky;
   }
 }

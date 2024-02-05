@@ -1,0 +1,14 @@
+@function reverseDir($dir) {
+  @if ($dir == right) {
+    @return left;
+  }
+  @if ($dir == left) {
+    @return right;
+  }
+  @if ($dir == bottom) {
+    @return top;
+  }
+  @if ($dir == top) {
+    @return bottom;
+  }
+}

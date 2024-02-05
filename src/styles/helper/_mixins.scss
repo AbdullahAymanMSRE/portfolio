@@ -25,3 +25,8 @@ $sizes: xs 480, sm 576, md 768, lg 992, xl 1200;
   -webkit-text-fill-color: transparent;
   font-size: 64px;
 }
+
+@mixin square($l) {
+  width: $l;
+  height: $l;
+}

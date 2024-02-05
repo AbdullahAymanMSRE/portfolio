@@ -2,8 +2,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 import { useMemo, useEffect, useState } from "react";
 
-export default function ParticlesBackground (){
-
+export default function ParticlesBackground() {
   const [init, setInit] = useState(false);
 
   // this should be run only once per application lifetime
@@ -32,11 +31,11 @@ export default function ParticlesBackground (){
           value: "#000",
         },
       },
-      fpsLimit: 120,
+      fpsLimit: 80,
       interactivity: {
         events: {
           onClick: {
-            enable: true,
+            enable: false,
             mode: "push",
           },
           onHover: {
@@ -93,12 +92,14 @@ export default function ParticlesBackground (){
       },
       detectRetina: true,
     }),
-    [],
+    []
   );
-      if(init) return <Particles
+  if (init)
+    return (
+      <Particles
         id="tsparticles"
         particlesLoaded={particlesLoaded}
         options={options}
       />
-      ;
+    );
 }
