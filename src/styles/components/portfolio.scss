@@ -4,6 +4,14 @@
 @use "../helper/mixins";
 @use "../helper/functions";
 
+%hide-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 $top: 50px;
 $left: 50%;
 $old-height: 457px;
@@ -64,17 +72,42 @@ $old-width: 402px;
   }
   .work {
     @extend %work-props;
-    transition: background 2s;
+    transition: background 1s;
+    &:not(.open) .open-only {
+      display: none;
+    }
     &.open {
       position: fixed;
-      animation: open-work 1s ease-in-out forwards;
+      animation: open-work 1.5s ease-in-out forwards;
       z-index: 10;
       max-width: min(90vw, 700px);
       background: rgba(black, 0.9);
       border: 2px solid colors.$primary;
       box-shadow: 0 0 15px colors.$primary;
+      overflow-y: scroll;
+      gap: 15px;
+      @extend %hide-scrollbar;
+
+      .img-background {
+        align-self: center;
+        @include mixins.flex($dir: column);
+        height: unset;
+        gap: 20px;
+        overflow: visible;
+        background: transparent !important;
+        width: 80%;
+        img {
+          width: 100%;
+          position: static;
+          border-radius: 0;
+        }
+      }
+      .open-only {
+        // display: none;
+        animation: display 2s ease-in-out forwards;
+      }
       .close {
-        display: inline-block;
+        display: block;
       }
       & + .after-work {
         @extend %work-props;
@@ -83,7 +116,8 @@ $old-width: 402px;
       }
     }
     .close {
-      @include mixins.square(20px);
+      @include mixins.square(20px, true);
+      cursor: pointer;
       display: none;
     }
     .img-background {
@@ -93,8 +127,10 @@ $old-width: 402px;
       height: 246px;
       backdrop-filter: blur(93.5px);
       position: relative;
+      // transition: 0.5s;
       img {
         position: absolute;
+        // transition: 0.5s;
         top: 30px;
         // width: 100%;
         height: calc(100% - 20px);
@@ -127,6 +163,9 @@ $old-width: 402px;
     .frameworks {
       @include mixins.flex($align: flex-start);
       gap: 20px;
+      svg {
+        @include mixins.square(30px);
+      }
     }
   }
   .back {
@@ -185,5 +224,14 @@ $old-width: 402px;
     height: 90vh;
     transform: translate(-50%, -50%);
     // position: sticky;
+  }
+}
+
+@keyframes display {
+  0% {
+    display: none;
+  }
+  100% {
+    display: flex;
   }
 }
