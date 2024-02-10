@@ -9,6 +9,9 @@ import ecommerceP2 from "../assets/ecommerce/login.png";
 import ecommerceP3 from "../assets/ecommerce/facebook-login.png";
 import ecommerceP4 from "../assets/ecommerce/products.png";
 
+import retailP1 from "../assets/retail/p1.png";
+import retailP2 from "../assets/retail/p2.png";
+
 import algovImage from "../assets/algov.png";
 import garbageImage from "../assets/garbage.png";
 
@@ -38,10 +41,20 @@ export default function Portfolio({ ref }) {
             <div></div>
           </div>
           <Work
+            title="Frontend Developer"
+            link="https://retail-template.vercel.app"
+            images={[retailP1, retailP2]}
+            name="Retail Template"
+            icons={[<JavascriptIcon />, <ReactIcon />, <GitIcon />]}
+            open={open}
+            setOpen={setOpen}
+            description="In this project I have turned the figma template into a live Next.js template."
+          />
+          <Work
             title="Backend Developer"
             // link="https://algov-visualizer.vercel.app"
             images={[ecommerceP1, ecommerceP2, ecommerceP3, ecommerceP4]}
-            name="Outstock Ecommerce"
+            name="Ecommerce API"
             icons={[<PhpIcon />, <LaravelIcon />, <MysqlIcon />, <GitIcon />]}
             open={open}
             setOpen={setOpen}
@@ -73,17 +86,6 @@ export default function Portfolio({ ref }) {
             open={open}
             setOpen={setOpen}
             description="The application offers a centralized and real-time platform for recording attendance, eliminating the need for traditional, error-prone methods. By providing analysis and detailed reports, it empowers sports organizations to make informed decisions based on accurate attendance data. This solution enhances efficiency, transparency, and overall team management by simplifying communication and ensuring up-to-date information is readily accessible to coaches, players, and administrators"
-          />
-          <Work
-            title="Frontend Developer"
-            link="https://algov-visualizer.vercel.app"
-            images={[algovImage, garbageImage, garbageImage]}
-            name="AlgoV"
-            icons={[<JavascriptIcon />, <ReactIcon />, <GitIcon />]}
-            open={open}
-            setOpen={setOpen}
-            description="AlgoV is an algorithms visualizer intended to help students easily understand how algorithms work via smooth and nice animations.
-             I have created this project from scratch with two of my friends using React.js meeting the criteria of the Design and Analysis of Algorithms course project in Egypt University of Informatics (EUI)"
           />
         </div>
       </div>

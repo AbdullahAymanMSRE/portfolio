@@ -184,4 +184,14 @@
   .container {
     padding: 0 variables.$side-margin-sm;
   }
+  .home-page .social-list {
+    gap: 30px;
+
+    li {
+      width: 27px;
+      &.stackoverflow {
+        min-width: 35px;
+      }
+    }
+  }
 }

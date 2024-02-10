@@ -4,6 +4,7 @@ import linkedinImg from "../assets/linkedin.png";
 import githubImg from "../assets/github.png";
 import stackoverflowImg from "../assets/stackoverflow.png";
 import atImg from "../assets/at.png";
+import upworkLogo from "../assets/svg/upwork.svg";
 import { useEffect, useState } from "react";
 import ParticlesBackground from "./ParticlesBackground";
 
@@ -97,6 +98,11 @@ ayman-2798a91ab/"
           <li>
             <Link to="mailto:abdullahaymanmsre@gmail.com">
               <img src={atImg} alt="email logo" />
+            </Link>
+          </li>
+          <li>
+            <Link to="https://www.upwork.com/freelancers/~016104954171b1b55c">
+              <img src={upworkLogo} alt="upwork logo" />
             </Link>
           </li>
         </ul>
