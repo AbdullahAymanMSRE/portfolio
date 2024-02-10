@@ -46,7 +46,10 @@ export default function Work({
         {iOpen ? (
           <>
             <span className="work-name">{name}</span>
-            <p>{description}</p>
+            {/* <p>{description}</p> */}
+            <MovingParagraph variants={variants_1}>
+              {description}
+            </MovingParagraph>
           </>
         ) : (
           <></>
@@ -62,19 +65,28 @@ export default function Work({
         </div>
         <span className="job-title">{title} @</span>
         <span className="work-name">{name}</span>
-        {!iOpen ? (
-          <button
-            className="details-btn"
-            onClick={(e) => {
-              setIOpen(true);
-              setOpen(true);
-            }}
-          >
-            view details
-          </button>
-        ) : (
-          <></>
-        )}
+        <div className="btns">
+          {!iOpen ? (
+            <button
+              className="details-btn"
+              onClick={(e) => {
+                setIOpen(true);
+                setOpen(true);
+              }}
+            >
+              view details
+            </button>
+          ) : (
+            <></>
+          )}
+          {link ? (
+            <a className="link-btn" href={link}>
+              open
+            </a>
+          ) : (
+            <></>
+          )}
+        </div>
         <div className="separator"></div>
         <div className="frameworks">{icons}</div>
       </div>
