@@ -79,7 +79,7 @@ export default function Portfolio({ ref }) {
           />
           <Work
             title="Fullstack Developer"
-            link="http://mamsre-001-site2.dtempurl.com/en/#/home"
+           // link="http://mamsre-001-site2.dtempurl.com/en/#/home"
             images={[attendaceP1, attendaceP2, attendaceP3]}
             name="Attendance Tracker"
             icons={[<DotnetIcon />, <AngularIcon />, <SassIcon />, <GitIcon />]}
