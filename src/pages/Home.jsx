@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      <ParticlesBackground />
+      {/* <ParticlesBackground /> */}
       <div className="contents">
         <Nav
           portfolioScroll={scrollToPortfolio}

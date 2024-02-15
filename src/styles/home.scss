@@ -3,6 +3,10 @@
 // @use "./helper/sizes";
 @use "./helper/mixins";
 
+body {
+  background: colors.$background;
+}
+
 .home-page {
   min-height: 100vh;
   color: white;
