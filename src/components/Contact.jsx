@@ -21,7 +21,10 @@ export default function Contact() {
         from_email: emailRef.current.value,
         message: messageRef.current.value,
       });
-      alert("email successfully sent check inbox");
+      alert("email successfully sent");
+      nameRef.current.value = ""
+      emailRef.current.value = ""
+      messageRef.current.value = ""
     } catch (error) {
       console.log(error);
     } finally {
